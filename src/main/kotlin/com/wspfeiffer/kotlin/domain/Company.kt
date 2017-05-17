@@ -1,5 +1,6 @@
 package com.wspfeiffer.kotlin.domain
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import javax.persistence.*
 import javax.validation.constraints.NotNull
 import javax.validation.constraints.Size
@@ -9,6 +10,7 @@ import javax.validation.constraints.Size
  */
 @Entity
 @Table(name = "company")
+@JsonIgnoreProperties("handler", "hibernateLazyInitializer")
 open class Company(
         @Id
         @GeneratedValue(generator="sequenceGenerator", strategy = GenerationType.SEQUENCE)

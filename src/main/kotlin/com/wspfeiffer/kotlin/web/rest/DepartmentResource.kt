@@ -51,4 +51,18 @@ class DepartmentController(val departmentService: DepartmentService) {
         }
     }
 
+    @DeleteMapping("/departments/{id}")
+    fun deleteDepartment(@PathVariable id: Long): ResponseEntity<Department> {
+        val department: Department = departmentService.deleteDepartment(id)
+        return ResponseEntity(department, HttpStatus.OK)
+
+    }
+
+    @PutMapping("/departments")
+    fun updateDepartment(@RequestBody department: Department): ResponseEntity<Department>  {
+        val returnDepartment: Department = departmentService.saveDepartment(department)
+        return ResponseEntity(returnDepartment, HttpStatus.OK)
+    }
+    
+
 }

@@ -25,4 +25,15 @@ class EmployeeService(val employeeRepository: EmployeeRepository, val entityMana
     fun getEmployee(id: Long): Employee {
         return employeeRepository.getOne(id)
     }
+    
+    fun saveEmployee(employee: Employee): Employee {
+        val updatedEmployee = employeeRepository.save(employee)
+        return updatedEmployee
+    }
+
+    fun deleteEmployee(id: Long): Employee {
+        val deletedEmployee: Employee = employeeRepository.getOne(id)
+        employeeRepository.delete(id)
+        return deletedEmployee
+    }
 }

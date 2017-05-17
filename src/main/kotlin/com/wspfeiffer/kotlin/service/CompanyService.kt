@@ -19,4 +19,15 @@ class CompanyService(val companyRepository: CompanyRepository) {
     fun getCompany(id: Long): Company {
         return companyRepository.getOne(id)
     }
+
+    fun saveCompany(company: Company): Company {
+        val updatedCompany = companyRepository.save(company)
+        return updatedCompany
+    }
+
+    fun deleteCompany(id: Long): Company {
+        val deletedCompany: Company = companyRepository.getOne(id)
+        companyRepository.delete(id)
+        return deletedCompany
+    }
 }

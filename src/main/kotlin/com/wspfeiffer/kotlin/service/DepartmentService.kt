@@ -36,4 +36,14 @@ class DepartmentService(val departmentRepository: DepartmentRepository) {
         }
         return department
     }
+    fun saveDepartment(department: Department): Department {
+        val updatedDepartment = departmentRepository.save(department)
+        return updatedDepartment
+    }
+
+    fun deleteDepartment(id: Long): Department {
+        val deletedDepartment: Department = departmentRepository.getOne(id)
+        departmentRepository.delete(id)
+        return deletedDepartment
+    }
 }
