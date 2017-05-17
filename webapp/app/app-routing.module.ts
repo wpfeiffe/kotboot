@@ -4,7 +4,17 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    children: []
+    children: [
+      {
+        path: '',
+        children: []
+      },
+      {
+        path: 'entities',
+        loadChildren: './entities/entities.module#EntitiesModule'
+      },
+
+    ]
   }
 ];
 

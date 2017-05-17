@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*
 /**
  * Department rest resource
  */
+@CrossOrigin("http://localhost:4200")
 @RestController
 @RequestMapping("/api")
 class DepartmentController(val departmentService: DepartmentService) {
