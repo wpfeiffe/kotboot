@@ -12,8 +12,7 @@ const routes: Routes = [
       {
         path: 'entities',
         loadChildren: './entities/entities.module#EntitiesModule'
-      },
-
+      }
     ]
   }
 ];

@@ -16,7 +16,7 @@ class DepartmentService(val departmentRepository: DepartmentRepository) {
     }
 
     fun getDepartment(id: Long): Department {
-        return departmentRepository.getOne(id)
+        return departmentRepository.findOne(id)
     }
 
     fun getDepartmentByName(deptName: String): Department? {

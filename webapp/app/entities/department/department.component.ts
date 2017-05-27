@@ -36,5 +36,9 @@ export class DepartmentComponent implements OnInit {
     this.selectionMessage = `No selection`
   }
 
+  deleteDepartment(department: Department) {
+    console.log("Told to delete department:")
+    console.log(department)
+  }
 
 }

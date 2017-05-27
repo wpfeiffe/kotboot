@@ -17,7 +17,7 @@ class CompanyService(val companyRepository: CompanyRepository) {
     }
 
     fun getCompany(id: Long): Company {
-        return companyRepository.getOne(id)
+        return companyRepository.findOne(id);
     }
 
     fun saveCompany(company: Company): Company {

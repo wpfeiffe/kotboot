@@ -35,6 +35,12 @@ export class EmployeeComponent implements OnInit {
     console.log(event);
     this.selectionMessage = `No selection`
   }
+  
+  deleteEmployee(employee: Employee) {
+    console.log("Told to delete employee:")
+    console.log(employee)
+  }
+
 
 
 }

@@ -40,4 +40,10 @@ class CompanyController (val companyService: CompanyService) {
         val returnCompany: Company = companyService.saveCompany(company)
         return ResponseEntity(returnCompany, HttpStatus.OK)
     }
+
+    @PostMapping("/companies")
+    fun createCompany(@RequestBody company: Company): ResponseEntity<Company>  {
+        val returnCompany: Company = companyService.saveCompany(company)
+        return ResponseEntity(returnCompany, HttpStatus.OK)
+    }
 }

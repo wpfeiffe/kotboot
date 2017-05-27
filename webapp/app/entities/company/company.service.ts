@@ -7,16 +7,45 @@ import {Company} from './company.model';
 @Injectable()
 export class CompanyService {
 
-  private companyUrl: string = `http://${window.location.hostname}:8080/api/companies`;
+  private resourceUrl: string = `http://${window.location.hostname}:8080/api/companies`;
 
   constructor(private http: Http) {
   }
 
   getCompanies(): Observable<Company[]> {
-    return this.http.get(this.companyUrl)
+    return this.http.get(this.resourceUrl)
       .map(this.extractData)
       .catch(this.handleError);
 
+  }
+
+  create(company: Company): Observable<Company> {
+    const copy: Company = Object.assign({}, company);
+    return this.http.post(this.resourceUrl, copy)
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
+  update(company: Company): Observable<Company> {
+    const copy: Company = Object.assign({}, company);
+    return this.http.put(this.resourceUrl, copy)
+      .map(this.extractData)
+      .catch(this.handleError);
+
+  }
+
+  get(id: string): Observable<Response> {
+    var retval = this.http.get(`${this.resourceUrl}/${id}`)
+      .map(this.extractData)
+      .catch(this.handleError);
+
+    return retval;
+  }
+
+  delete(id: number): Observable<Response> {
+    return this.http.delete(`${this.resourceUrl}/${id}`)
+      .map(this.extractData)
+      .catch(this.handleError);
   }
 
   private extractData(res: Response)  {

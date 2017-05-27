@@ -13,5 +13,11 @@
   <p-column field="deptCode" header="Dept Code"></p-column>
   <p-column field="deptName" header="Dept Name"></p-column>
   <p-column field="company.companyName" header="Company"></p-column>
+  <p-column header="Actions">
+    <ng-template let-department="rowData" pTemplate="body">
+      <button class="btn btn-success" routerLink="/entities/department/{{department.id}}"><fa name="list-ul"></fa>View</button>
+      <button class="btn btn-danger" (click)="deleteDepartment(department)"><fa name="trash"></fa>Delete</button>
+    </ng-template>
+  </p-column>
   <p-footer>{{selectionMessage}}</p-footer>
 </p-dataTable>
